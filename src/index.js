@@ -18,6 +18,12 @@ function assembleLoader(content) {
 
   app.layouts(options.layouts)
   app.partials(options.partials)
+  if (options.data) {
+    app.data(options.data)
+  }
+  if (options.helpers) {
+    app.helpers(options.helpers)
+  }
   app.page('page.hbs', { content })
 
   app.render('page.hbs', options.define || {}, (err, view) => {
